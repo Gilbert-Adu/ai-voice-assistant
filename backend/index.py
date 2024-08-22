@@ -1,18 +1,12 @@
-import os
 import json
 import speech_recognition as sr # type: ignore
 import pyttsx3 # type: ignore
-import pyaudio # type: ignore
-import pvporcupine # type: ignore
-import struct
-from flask import Flask, jsonify, render_template # type: ignore
-import requests # type: ignore
-from bs4 import BeautifulSoup # type: ignore
+from flask import Flask # type: ignore
 
 
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
-app = Flask(__name__, static_folder='frontend', template_folder='frontend')
+app = Flask(__name__)
 
 answers = "data.json"
 with open(answers, "r") as file:
@@ -73,7 +67,7 @@ def handle_query(query):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return "hitting 5000 from docker"
 
 def activate_helper():
     while True:
