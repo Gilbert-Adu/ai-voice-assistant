@@ -1,10 +1,10 @@
-FROM python:3.10-slim
+# Use the official Python image from the Docker Hub
+FROM python:3.11-slim
 
 WORKDIR /app
 
 COPY requirements.txt .
-
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
