@@ -40,10 +40,20 @@ function App() {
   
   return (
     <div className="App">
-    <h1>Voice Assistant</h1>
-    <button onClick={activateVoiceAssistant}>Activate Assistant</button>
-    <button onClick={() => handleTextToSpeech("Hello, welcome to the AWS Polly demo!")}>Speak</button>
-    <p>{assistantResponse}</p>
+    <h4>Gilbert's Voice Assistant</h4>
+    <button onClick={activateVoiceAssistant} className='activate-btn'>Activate Assistant</button>
+    <h4>Sample Queries to ask</h4>
+    <hr/>
+    <ol>
+      <li>Hello</li>
+      <li>How are you?</li>
+      <li>What can you do?</li>
+      <li>What is GENOS Digital</li>
+      <li>Who is Gilbert?</li>
+    </ol>
+
+
+
   </div>
 
   );
