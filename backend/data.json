@@ -3,10 +3,10 @@
     "hello": "Hello! How can I assist you today?"
 ,
 
-    "what-is-your-name": "My name is Gilbert. I am an example of the Gino's digital voice assistant"
+    "what is your name": "My name is Gilbert. I am an example of the Gino's digital voice assistant"
 ,
 
-    "how-are-you": "I'm doing great, thank you!"
+    "how are you": "I'm doing great, thank you!"
 ,
 
     "exit": "Goodbye"
@@ -15,13 +15,13 @@
     "quit": "Goodbye"
 ,
 
-    "what-can-you-do": "I can answer questions regarding the capabilities of Gilbert the human and Gino's digital. Gilbert is a software developer with experience in building frontend and backend of software programs. He can build for web, mobile, VR, and custom hardware devices. He can build in Python, Node JS, and Java. Ask me about Gino's digital."
+    "what can you do": "I can answer questions regarding the capabilities of Gilbert the human and Gino's digital. Gilbert is a software developer with experience in building frontend and backend of software programs. He can build for web, mobile, VR, and custom hardware devices. He can build in Python, Node JS, and Java. Ask me about Gino's digital."
 ,
 
-    "what-is-gino's-digital": "Gino's digital is a small non-incorporated software company that Gilbert runs out of his home office in Ithaca, NY. Hiring Gino's digital is the same as hiring Gilbert. I should mention though that Gilbert is open to fulltime Software developer roles. On-site or remote."
+    "what is gino's digital": "Gino's digital is a small non-incorporated software company that Gilbert runs out of his home office in Ithaca, NY. Hiring Gino's digital is the same as hiring Gilbert. I should mention though that Gilbert is open to fulltime Software developer roles. On-site or remote."
 ,
 
-    "who-is-gilbert": "Gilbert is a pretty cool dude. He graduated from Cornell University in 2022 with a degree in Computer Science and Communication and can build anything with any tool required of him. He absolutely loves cloud computing especially with AWS, creating and orchestrating microservice architecture, and serverless applications. He's a lifelong learner and appreciates challenges with open arms so what new challenge do you have for the big guy huh?"
+    "who is gilbert": "Gilbert is a pretty cool dude. He graduated from Cornell University in 2022 with a degree in Computer Science and Communication and can build anything with any tool required of him. He absolutely loves cloud computing especially with AWS, creating and orchestrating microservice architecture, and serverless applications. He's a lifelong learner and appreciates challenges with open arms so what new challenge do you have for the big guy huh?"
 }
 
 

@@ -1,11 +1,9 @@
 from flask import Flask, request, jsonify, send_file, Response # type: ignore
 from flask_cors import CORS # type: ignore
 import pyaudio # type: ignore
+import json
 
-app = Flask(__name__)
-CORS(app)
 
-"""Getting Started Example for Python 2.7+/3.3+"""
 from boto3 import Session # type: ignore
 import boto3 # type: ignore
 from botocore.exceptions import BotoCoreError, ClientError # type: ignore
@@ -16,6 +14,10 @@ import subprocess
 from tempfile import gettempdir
 import speech_recognition as sr # type: ignore
 
+app = Flask(__name__)
+CORS(app)
+
+
 
 # Create a client using the credentials and region defined in the [adminuser]
 # section of the AWS credentials file (~/.aws/credentials).
@@ -23,6 +25,31 @@ polly = boto3.client("polly",
                      aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
                      aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
                     region_name=os.getenv('AWS_REGION')) # type: ignore
+
+lambda_client = boto3.client("lambda", 
+                     aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+                     aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+                    region_name=os.getenv('AWS_REGION')) # type: ignore
+
+
+
+def invoke_lambda(text):
+    event_payload = {
+        "user_q": text,
+    }
+
+    response = lambda_client.invoke(
+        FunctionName=os.getenv('FUNCTION_NAME'),
+        InvocationType='RequestResponse',
+        Payload=json.dumps(event_payload)
+    )
+
+    response_payload = response['Payload'].read().decode('utf-8')
+    result = json.loads(response_payload)
+    message = json.loads(result['body'])['message']
+
+
+    return message
 
 recognizer = sr.Recognizer()
 MICROPHONE_DEVICE_INDEX = int(os.getenv('MICROPHONE_DEVICE_INDEX', 0))
@@ -71,7 +98,7 @@ def activate_assistant():
             print(f"User said: {query}")
             response = {'response': query}
             print(response)
-            synthesize_speech(query)
+            synthesize_speech(invoke_lambda(query.lower()))
             return response
     except Exception as e:
         return {'error': str(e)}, 500
